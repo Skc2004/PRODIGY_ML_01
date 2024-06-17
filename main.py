@@ -10,7 +10,7 @@ from sklearn.preprocessing import MinMaxScaler, LabelEncoder
 from sklearn.linear_model import Ridge, Lasso
 from sklearn.metrics import r2_score
 
-data = pd.read_csv("/Users/kaustubhkrishna/Downloads/house-prices-advanced-regression-techniques/train.csv")
+data = pd.read_csv("D:\PRODIGY_ML_01\train.csv")
 
 missing_percentage = data.isnull().mean() * 100
 missing_columns = missing_percentage[missing_percentage > 0]
@@ -152,7 +152,7 @@ test_r2 = r2_score(y_test, y_test_pred)
 residuals = y_train - y_train_pred
 
 
-test_data = pd.read_csv('/Users/kaustubhkrishna/Downloads/house-prices-advanced-regression-techniques/test.csv')
+test_data = pd.read_csv("D:\PRODIGY_ML_01\test.csv")
 
 ord_vars = ['MSSubClass', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodAdd', 'MoSold', 'YrSold']
 test_data[ord_vars] = test_data[ord_vars].astype('object')
@@ -213,7 +213,7 @@ predictions = scalerY.inverse_transform(predictions.reshape(-1, 1))
 predictions = predictions.reshape(-1, )
 
 submission_df = pd.DataFrame({
-    'Id': pd.read_csv('/Users/kaustubhkrishna/Downloads/house-prices-advanced-regression-techniques/test.csv')['Id'],
+    'Id': pd.read_csv("D:\PRODIGY_ML_01\test.csv")['Id'],
     'SalePrice': predictions
 })
 
